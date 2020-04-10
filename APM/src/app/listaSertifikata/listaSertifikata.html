@@ -19,7 +19,7 @@
             <td >{{ser.uid}}</td>
             <td >{{ ser.notBefore }}</td>
             <td >{{ ser.notAfter }}</td>
-            <td ><button class="btn btn-info" (click)='povuciSertifikat()'>Povuci Sertifikat</button></td>
+            <td ><button class="btn btn-info" (click)='povuciSertifikatCA(ser.uid)'>Povuci Sertifikat</button></td>
             <td ><button class="btn btn-info" (click)='skiniSertifikatCA(ser.uid)'>Download Sertifikat</button></td>
           </tr>
         </tbody>
@@ -49,10 +49,35 @@
             <td >{{sertifikat.uid}}</td>
             <td >{{ sertifikat.notBefore }}</td>
             <td >{{ sertifikat.notAfter }}</td>
-            <td ><button class="btn btn-info" (click)='povuciSertifikat()'>Povuci Sertifikat</button></td>
+            <td ><button class="btn btn-info" (click)='povuciSertifikatEE(sertifikat.uid)'>Povuci Sertifikat</button></td>
             <td ><button class="btn btn-info" (click)='skiniSertifikatEE(sertifikat.uid)'>Download Sertifikat</button></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
+
+<h2>Povuceni sertifikati</h2>
+<div class='table-responsive'>
+    <table class='table'
+           *ngIf='listaPovucenihSertifikata'>
+      <thead>
+        <tr>
+          <th>Sertikikat Subject</th>
+          <th>Sertikikat UID</th>
+          <th>Datum izdavanja</th>
+          <th>Datum isteka</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let sertifikat of listaPovucenihSertifikata'>
+          <td >{{ sertifikat.cn+"-"+sertifikat.o+ "-" +sertifikat.ou+ "-" +sertifikat.c+ "-" +sertifikat.mail }}</td>
+          <td >{{ sertifikat.uid }}</td>
+          <td >{{ sertifikat.notBefore }}</td>
+          <td >{{ sertifikat.notAfter }}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

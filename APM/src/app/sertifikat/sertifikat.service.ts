@@ -45,4 +45,17 @@ export class SertifikatServces{
     
     }
 
+    public povuciCA(uid: String){
+        return this.http.get("/api/certificate/povuciCA/" + uid);    
+    }
+
+    public povuciEE(uid: String){
+        return this.http.get("/api/certificate/povuciEE/" + uid);    
+    }
+
+    public vratiSvePovucene(): Observable<Sertifikat[]> {
+        return this.http.get<Sertifikat[]>("/api/certificate/sviPovuceniSertifikati");
+    
+    }
+
 }
