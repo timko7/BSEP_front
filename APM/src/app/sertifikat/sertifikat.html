@@ -1,0 +1,86 @@
+<html>
+    <body>
+    <h1>Napravi novi sertifikat</h1>
+    <form (ngSubmit)="napraviNoviSertifikat()" #pacijentForm="ngForm">
+        <table>
+            <tr><h3>Kome se izdaje</h3></tr>
+            <tr>
+                <td>Common name(CN)</td>
+                    <td><input type="text" name="CN" #CN="ngModel" [(ngModel)] = "sertifikat.cn"> </td>
+                </tr>
+                <tr>
+                <td>Organization(O)</td>
+                    <td><input type="text" name="O" #O="ngModel" [(ngModel)] = "sertifikat.o"> </td>
+                </tr>
+                <tr>
+                <td>Organizational unit(OU)</td>
+                    <td><input type="text" name="OU" #OU="ngModel"[(ngModel)] = "sertifikat.ou"> </td>
+                </tr>
+                <tr>
+                <td>Town(L)</td>
+                    <td><input type="text" name="L" #L="ngModel" [(ngModel)] = "sertifikat.l"> </td>
+                </tr>
+                <tr>
+                <td>Country(C)</td>
+                    <td><input type="text" name="C" #C="ngModel" [(ngModel)] = "sertifikat.c"> </td>
+                </tr>
+                <tr>
+                <td>Mail</td>
+                    <td><input type="text" name="MAIL" #MAIL="ngModel" [(ngModel)] = "sertifikat.mail"> </td>
+                </tr>
+                <tr>
+                    <td>Surname</td>
+                        <td><input type="text" name="SURNAME" #SURNAME="ngModel" [(ngModel)] = "sertifikat.surname"> </td>
+                    </tr>
+                    <tr>
+                        <td>GIVENNAME</td>
+                            <td><input type="text" name="GIVENNAME" #GIVENNAME="ngModel" [(ngModel)] = "sertifikat.givenname"> </td>
+                        </tr>
+                        <tr>
+                            <td>UID</td>
+                                <td><input type="text" name="UID" #UID="ngModel" [(ngModel)] = "sertifikat.uid"> </td>
+                            </tr>
+                <tr>
+                        <td>Ko izdaje</td>
+                        <td>
+                           
+                            <select name="a"  #a="ngModel" [(ngModel)] = 'izabraniAlias'>
+                             <option *ngFor='let alias of imenaAliasa' [ngValue]="alias">{{alias}}</option> 
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Namena</td>
+                        <td>
+                            <select name="namena"  #namena="ngModel" [(ngModel)] = "sertifikat.extensionString">
+                            <!-- <option *ngFor='let tip of tipoviKlinike'>{{ tip.nazivTipa }}</option> -->
+                            <option >CA - Certificate Authority </option>
+                            <option >Document signing </option>
+                            <option >Data and key encipherment </option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Vazi od</td>
+                        <td><input type="date" required name="password" #password="ngModel" [(ngModel)]="sertifikat.notBefore" [ngClass]="{'form-control':true,
+                            'is-invalid': !password?.valid && !password?.touched,
+                            'is-valid': password?.valid && password?.touched}"></td>
+                        <td *ngIf="password?.errors?.required && password?.touched"> Polje se mora popuniti</td>
+                    </tr>
+
+                    <tr>
+                        <td>Vazi do</td>
+                        <td><input type="date" required name="password" #password="ngModel" [(ngModel)]="sertifikat.notAfter" [ngClass]="{'form-control':true,
+                            'is-invalid': !password?.valid && !password?.touched,
+                            'is-valid': password?.valid && password?.touched}"></td>
+                        <td *ngIf="password?.errors?.required && password?.touched"> Polje se mora popuniti</td>
+                    </tr>
+                            <tr>
+                            <td><input type="submit" value="Potvrdi"></td>
+                                </tr>
+        </table>
+        <p *ngIf='!povratna'>Datumm mora biti u okviru issuera</p>
+    </form>
+  </body>  
+</html>

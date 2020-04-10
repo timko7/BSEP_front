@@ -1,0 +1,58 @@
+    <h2>CA sertifikati</h2>
+    <div class="listaCASertifikata">
+  <div class='table-responsive'>
+      <table class='table'
+             *ngIf='listaCASertifikata'>
+        <thead>
+          <tr>
+            <th>Sertikikat Subject</th>
+            <th>Sertikikat UID</th>
+            <th>Datum izdavanja</th>
+            <th>Datum isteka</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let ser of listaCASertifikata'>
+            <td >{{ser.cn+"-"+ser.o+ "-" +ser.ou+ "-" +ser.c+ "-" +ser.mail}}</td>
+            <td >{{ser.uid}}</td>
+            <td >{{ ser.notBefore }}</td>
+            <td >{{ ser.notAfter }}</td>
+            <td ><button class="btn btn-info" (click)='povuciSertifikat()'>Povuci Sertifikat</button></td>
+            <td ><button class="btn btn-info" (click)='skiniSertifikatCA(ser.uid)'>Download Sertifikat</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <h2>EE sertifikati</h2>
+    <div class="listaEESertifikata">
+  <div class='table-responsive'>
+      <table class='table'
+             *ngIf='listaEESertifikata'>
+        <thead>
+          <tr>
+            <th>Sertikikat Subject</th>
+            <th>Sertikikat UID</th>
+            <th>Datum izdavanja</th>
+            <th>Datum isteka</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let sertifikat of listaEESertifikata'>
+            <td >{{sertifikat.cn+"-"+sertifikat.o+ "-" +sertifikat.ou+ "-" +sertifikat.c+ "-" +sertifikat.mail}}</td>
+            <td >{{sertifikat.uid}}</td>
+            <td >{{ sertifikat.notBefore }}</td>
+            <td >{{ sertifikat.notAfter }}</td>
+            <td ><button class="btn btn-info" (click)='povuciSertifikat()'>Povuci Sertifikat</button></td>
+            <td ><button class="btn btn-info" (click)='skiniSertifikatEE(sertifikat.uid)'>Download Sertifikat</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
