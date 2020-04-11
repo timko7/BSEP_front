@@ -3,7 +3,7 @@
     <h1>Napravi novi sertifikat</h1>
     <form (ngSubmit)="napraviNoviSertifikat()" #pacijentForm="ngForm">
         <table>
-            <tr><h3>Kome se izdaje</h3></tr>
+            <tr><h3>Subject</h3></tr>
             <tr>
                 <td>Common name(CN)</td>
                     <td><input type="text" name="CN" #CN="ngModel" [(ngModel)] = "sertifikat.cn"> </td>
@@ -33,15 +33,15 @@
                         <td><input type="text" name="SURNAME" #SURNAME="ngModel" [(ngModel)] = "sertifikat.surname"> </td>
                     </tr>
                     <tr>
-                        <td>GIVENNAME</td>
+                        <td>Givenname</td>
                             <td><input type="text" name="GIVENNAME" #GIVENNAME="ngModel" [(ngModel)] = "sertifikat.givenname"> </td>
                         </tr>
                         <tr>
                             <td>UID</td>
-                                <td><input type="text" name="UID" #UID="ngModel" [(ngModel)] = "sertifikat.uid"> </td>
+                                <td><input type="number" name="UID" #UID="ngModel" [(ngModel)] = "sertifikat.uid"> </td>
                             </tr>
                 <tr>
-                        <td>Ko izdaje</td>
+                        <td>Issuer</td>
                         <td>
                            
                             <select name="a"  #a="ngModel" [(ngModel)] = 'izabraniAlias'>
@@ -50,7 +50,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Namena</td>
+                        <td>Purpose</td>
                         <td>
                             <select name="namena"  #namena="ngModel" [(ngModel)] = "sertifikat.extensionString">
                             <!-- <option *ngFor='let tip of tipoviKlinike'>{{ tip.nazivTipa }}</option> -->
@@ -62,25 +62,25 @@
                     </tr>
 
                     <tr>
-                        <td>Vazi od</td>
+                        <td>Not before</td>
                         <td><input type="date" required name="password" #password="ngModel" [(ngModel)]="sertifikat.notBefore" [ngClass]="{'form-control':true,
                             'is-invalid': !password?.valid && !password?.touched,
                             'is-valid': password?.valid && password?.touched}"></td>
-                        <td *ngIf="password?.errors?.required && password?.touched"> Polje se mora popuniti</td>
+                        <td *ngIf="password?.errors?.required && password?.touched">Requiered field</td>
                     </tr>
 
                     <tr>
-                        <td>Vazi do</td>
+                        <td>Not after</td>
                         <td><input type="date" required name="password" #password="ngModel" [(ngModel)]="sertifikat.notAfter" [ngClass]="{'form-control':true,
                             'is-invalid': !password?.valid && !password?.touched,
                             'is-valid': password?.valid && password?.touched}"></td>
-                        <td *ngIf="password?.errors?.required && password?.touched"> Polje se mora popuniti</td>
+                        <td *ngIf="password?.errors?.required && password?.touched">Requiered field</td>
                     </tr>
                             <tr>
                             <td><input type="submit" value="Potvrdi"></td>
                                 </tr>
         </table>
-        <p *ngIf='!povratna'>Datumm mora biti u okviru issuera</p>
+        <p *ngIf='!povratna'>Validity period must fall within the issuer's validity period.</p>
     </form>
   </body>  
 </html>

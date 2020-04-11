@@ -52,7 +52,7 @@ napraviNoviSertifikat(){
     console.log(this.izabraniAlias);
 
     if(this.sertifikat.notAfter<this.sertifikat.notBefore){
-        alert("Daum isticanja sertifikata ne moze biti rani od datuma izdavanja");
+        alert("Datum isticanja mora biti nakon datuma izdavanja.");
     }
     else
         this.sertifikatService.sacuvaj(this.sertifikat).subscribe({next:povratna=>{this.povratna=povratna;
@@ -68,3 +68,5 @@ gotoUserList(){
 }
       
     }
+
+  

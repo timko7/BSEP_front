@@ -1,6 +1,6 @@
 <html>
     <body>
-    <h1>Uloguj se</h1>
+    <h1>Log in</h1>
     <form (ngSubmit)="login()" #pacijentForm="ngForm">
         <table>
             <tr>
@@ -9,19 +9,19 @@
                         'is-invalid': !email?.email && !email?.touched,
                         'is-valid': email?.valid && email?.touched}" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"></td>
                     
-                    <td *ngIf="email?.errors?.required && email?.touched"> Polje se mora popuniti</td>
-                    <td *ngIf="email?.errors?.pattern && email?.touched"> Email nije validan</td>
+                    <td *ngIf="email?.errors?.required && email?.touched"> Requierd field</td>
+                    <td *ngIf="email?.errors?.pattern && email?.touched"> E-mail not valid</td>
                 </tr>
                 <tr>
                         <td>Password</td>
                         <td><input type="password" required name="password" #password="ngModel" [(ngModel)]="zahtev.password" [ngClass]="{'form-control':true,
                             'is-invalid': !password?.valid && !password?.touched,
                             'is-valid': password?.valid && password?.touched}"></td>
-                        <td *ngIf="password?.errors?.required && password?.touched"> Polje se mora popuniti</td>
+                        <td *ngIf="password?.errors?.required && password?.touched"> Requierd field</td>
                     </tr>
                    
                             <tr>
-                            <td><input type="submit" value="Potvrdi"></td>
+                            <td><input type="submit" value="Submit"></td>
                                 </tr>
         </table>
     </form>

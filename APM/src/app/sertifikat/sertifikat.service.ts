@@ -28,6 +28,16 @@ export class SertifikatServces{
     
     }
 
+    public vratiAliaseEE():Observable<string[]>{
+        return this.http.get<string[]>("/api/certificate/aliasiEE");
+    
+    }
+
+    public vratiAliaseSve():Observable<string[]>{
+        return this.http.get<string[]>("/api/certificate/aliasiSvi");
+    
+    }
+
     public vratiSveCA():Observable<Sertifikat[]>{
         return this.http.get<Sertifikat[]>("/api/certificate/sviCASertifikati");
     
@@ -55,6 +65,21 @@ export class SertifikatServces{
 
     public vratiSvePovucene(): Observable<Sertifikat[]> {
         return this.http.get<Sertifikat[]>("/api/certificate/sviPovuceniSertifikati");
+    
+    }
+
+    public validacijaCA(izabraniAliasCA:String){
+        return this.http.get<boolean>("/api/certificate/validacijaCA/"+izabraniAliasCA);
+    
+    }
+
+    public validacijaEE(izabraniAliasEE:String){
+        return this.http.get<boolean>("/api/certificate/validacijaEE/"+izabraniAliasEE);
+    
+    }
+
+    public validacijaSvi(izabraniAliasSvi:String){
+        return this.http.get<boolean>("/api/certificate/validacijaSvi/"+izabraniAliasSvi);
     
     }
 
