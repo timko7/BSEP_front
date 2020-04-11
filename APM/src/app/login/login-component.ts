@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit{
 
        this.loginService.vratiUlogovanog().subscribe({next: korisnik=>{
             this.korisnik=korisnik;
-            alert("Uspesno ste se ulogovali"+korisnik.ime);
+            alert("User "+korisnik.ime + " logged in successfully.");
             this.router.navigate(["/homePage"]);
             
        }

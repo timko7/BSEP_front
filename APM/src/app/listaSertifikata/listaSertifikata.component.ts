@@ -23,6 +23,15 @@ export class ListaSertifikataComponent implements OnInit {
     listaCASertifikata: Sertifikat[] = [];
     listaEESertifikata: Sertifikat[] = [];
     listaPovucenihSertifikata: Sertifikat[] = [];
+    imenaAliasaCA:string[]=[];
+    imenaAliasaEE:string[]=[];
+    imenaAliasaSvi:string[]=[];
+    izabraniAliasCA:string;
+    povratnaCA:boolean;
+    izabraniAliasEE:string;
+    povratnaEE:boolean;
+    izabraniAliasSvi:string;
+    povratnaSvi:boolean;
 
     constructor(private router: Router, private loginService: RegistracijatServces, private sertifikatService: SertifikatServces) {
 
@@ -48,6 +57,21 @@ export class ListaSertifikataComponent implements OnInit {
                 this.listaPovucenihSertifikata = listaPovucenihSertifikata;
             }
         })
+
+        this.sertifikatService.vratiAliase().subscribe({
+            next:imenaAliasaCA=>{this.imenaAliasaCA=imenaAliasaCA;
+            console.log(this.imenaAliasaCA);
+        }});
+
+        this.sertifikatService.vratiAliaseEE().subscribe({
+            next:imenaAliasaEE=>{this.imenaAliasaEE=imenaAliasaEE;
+            console.log(this.imenaAliasaEE);
+        }});
+
+        this.sertifikatService.vratiAliaseSve().subscribe({
+            next:imenaAliasaSvi=>{this.imenaAliasaSvi=imenaAliasaSvi;
+            console.log(this.imenaAliasaSvi);
+        }});
 
     }
 
@@ -80,4 +104,24 @@ export class ListaSertifikataComponent implements OnInit {
         this.sertifikatService.skiniEE(uid).subscribe();
 
     }
+
+    validacijaSertifikatCA(izabraniAliasCA: string) {
+        console.log(izabraniAliasCA);
+        this.sertifikatService.validacijaCA(izabraniAliasCA).subscribe({next:povratnaCA=>{this.povratnaCA=povratnaCA;}});
+         
+
+    }
+
+    validacijaSertifikatEE(izabraniAliasEE: string) {
+        console.log(izabraniAliasEE);
+        this.sertifikatService.validacijaEE(izabraniAliasEE).subscribe({next:povratnaEE=>{this.povratnaEE=povratnaEE;}});
+
+    }
+
+    validacijaSertifikatSvi(izabraniAliasSvi: string) {
+        console.log(izabraniAliasSvi);
+        this.sertifikatService.validacijaSvi(izabraniAliasSvi).subscribe({next:povratnaSvi=>{this.povratnaSvi=povratnaSvi;}});
+
+    }
+
 }
