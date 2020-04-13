@@ -1,9 +1,10 @@
 <div class='card'>
     <div class='card-body'>
-<h3>Menu</h3>
-<div class="topnav" style="background-color: transparent;">
-    <a [routerLink]="['./sertifikat']" style="margin-left: 5px;" class="btn btn-info">New certificate</a>
-    <a [routerLink]="['./listaSertifikata']" style="margin-left: 15px;" style="margin-left: 5px;" class="btn btn-info">All certificates</a>
-  </div>
-      </div>
+        <h3>Menu</h3>
+        <div class="topnav" style="background-color: transparent;">
+            <a [routerLink]="['./sertifikat']" style="margin-left: 5px;" class="btn btn-info">New certificate</a>
+            <a [routerLink]="['./listaSertifikata']" style="margin-left: 15px;" class="btn btn-info">All certificates</a>
+            <a href="#" (click)='logout()' style="margin-left: 15px;" class="btn btn-info">Logout</a>
+        </div>
+    </div>
 </div>
