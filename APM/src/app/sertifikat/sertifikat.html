@@ -1,5 +1,5 @@
-<html>
-    <body>
+<div class='card'>
+    <div class='card-body'>
     <h1>Napravi novi sertifikat</h1>
     <form (ngSubmit)="napraviNoviSertifikat()" #pacijentForm="ngForm">
         <table>
@@ -77,10 +77,16 @@
                         <td *ngIf="password?.errors?.required && password?.touched">Requiered field</td>
                     </tr>
                             <tr>
-                            <td><input type="submit" value="Potvrdi"></td>
+                            <td><input type="submit" class="btn btn-info" value="Confirm"></td>
                                 </tr>
         </table>
         <p *ngIf='!povratna'>Validity period must fall within the issuer's validity period.</p>
     </form>
-  </body>  
-</html>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <button class="btn btn-info" (click)='back()'> Back </button>
+    </div>
+</div>
