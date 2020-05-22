@@ -6,39 +6,39 @@
             <tr><h3>Subject</h3></tr>
             <tr>
                 <td>Common name(CN)</td>
-                    <td><input type="text" name="CN" #CN="ngModel" [(ngModel)] = "sertifikat.cn"> </td>
+                    <td><input type="text" name="CN" #CN="ngModel" [(ngModel)] = "sertifikat.cn" value="${fn:escapeXml(sertifikat.cn)}"> </td>
                 </tr>
                 <tr>
                 <td>Organization(O)</td>
-                    <td><input type="text" name="O" #O="ngModel" [(ngModel)] = "sertifikat.o"> </td>
+                    <td><input type="text" name="O" #O="ngModel" [(ngModel)] = "sertifikat.o" value="${fn:escapeXml(sertifikat.o)}"> </td>
                 </tr>
                 <tr>
                 <td>Organizational unit(OU)</td>
-                    <td><input type="text" name="OU" #OU="ngModel"[(ngModel)] = "sertifikat.ou"> </td>
+                    <td><input type="text" name="OU" #OU="ngModel"[(ngModel)] = "sertifikat.ou" value="${fn:escapeXml(sertifikat.ou)}"> </td>
                 </tr>
                 <tr>
                 <td>Town(L)</td>
-                    <td><input type="text" name="L" #L="ngModel" [(ngModel)] = "sertifikat.l"> </td>
+                    <td><input type="text" name="L" #L="ngModel" [(ngModel)] = "sertifikat.l" value="${fn:escapeXml(sertifikat.l)}"> </td>
                 </tr>
                 <tr>
                 <td>Country(C)</td>
-                    <td><input type="text" name="C" #C="ngModel" [(ngModel)] = "sertifikat.c"> </td>
+                    <td><input type="text" name="C" #C="ngModel" [(ngModel)] = "sertifikat.c" value="${fn:escapeXml(sertifikat.c)}"> </td>
                 </tr>
                 <tr>
                 <td>Mail</td>
-                    <td><input type="text" name="MAIL" #MAIL="ngModel" [(ngModel)] = "sertifikat.mail"> </td>
+                    <td><input type="text" name="MAIL" #MAIL="ngModel" [(ngModel)] = "sertifikat.mail" value="${fn:escapeXml(sertifikat.mail)}"> </td>
                 </tr>
                 <tr>
                     <td>Surname</td>
-                        <td><input type="text" name="SURNAME" #SURNAME="ngModel" [(ngModel)] = "sertifikat.surname"> </td>
+                        <td><input type="text" name="SURNAME" #SURNAME="ngModel" [(ngModel)] = "sertifikat.surname" value="${fn:escapeXml(sertifikat.surname)}"> </td>
                     </tr>
                     <tr>
                         <td>Givenname</td>
-                            <td><input type="text" name="GIVENNAME" #GIVENNAME="ngModel" [(ngModel)] = "sertifikat.givenname"> </td>
+                            <td><input type="text" name="GIVENNAME" #GIVENNAME="ngModel" [(ngModel)] = "sertifikat.givenname" value="${fn:escapeXml(sertifikat.givenname)}"> </td>
                         </tr>
                         <tr>
                             <td>UID</td>
-                                <td><input type="number" name="UID" #UID="ngModel" [(ngModel)] = "sertifikat.uid"> </td>
+                                <td><input type="number" name="UID" #UID="ngModel" [(ngModel)] = "sertifikat.uid" value="${fn:escapeXml(sertifikat.uid)}"> </td>
                             </tr>
                 <tr>
                         <td>Issuer</td>
@@ -54,13 +54,13 @@
                         <td>
                             <select name="namena"  #namena="ngModel" [(ngModel)] = "sertifikat.extensionString">
                             <!-- <option *ngFor='let tip of tipoviKlinike'>{{ tip.nazivTipa }}</option> -->
-                            <option >CA - Certificate Authority </option>
-                            <option >Document signing </option>
-                            <option >Data and key encipherment </option>
-                            <option >CA, Document signing </option>
-                            <option >CA, Data and key encipherment </option>
-                            <option >Document signing, Data and key encipherment </option>
-                            <option >CA, Document signing, Data and key encipherment </option>
+                            <option >CA - Certificate Authority</option>
+                            <option >Document signing</option>
+                            <option >Data and key encipherment</option>
+                            <option >CA, Document signing</option>
+                            <option >CA, Data and key encipherment</option>
+                            <option >Document signing, Data and key encipherment</option>
+                            <option >CA, Document signing, Data and key encipherments</option>
                             </select>
                         </td>
                     </tr>
