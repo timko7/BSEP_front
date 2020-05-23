@@ -45,6 +45,12 @@ export class ListaSertifikataComponent implements OnInit {
         this.loginService.vratiUlogovanog().subscribe({
             next: korisnik => {
                 this.korisnik = korisnik;
+                console.log(korisnik);
+                if (korisnik.rootCreated == true || this.korisnik.rootCreated == false) {
+                    console.log("Instanca od ADMIN");
+                } else {
+                    console.log("Instanca od KORISNIK");
+                }
 
                 if (this.korisnik == null) {
                     this.router.navigate(["/welcome"]);

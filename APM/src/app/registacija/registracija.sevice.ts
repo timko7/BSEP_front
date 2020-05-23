@@ -19,6 +19,10 @@ export class RegistracijatServces{
         return this.http.post<Korisnik>("/api/admin/add",korisnik);
     }
 
+    public saveObicnog(korisnik:Korisnik){
+        return this.http.post<Korisnik>("/api/login/regKorisnika",korisnik);
+    }
+
     public ulogujSe(loginZahtev:LoginZahtev){
         return this.http.post<Response>("/api/login", loginZahtev);
     }
@@ -29,7 +33,7 @@ export class RegistracijatServces{
     }
 
     public logout(request: Request) {
-        return this.http.post("/api/login/logOut", request);
+        return this.http.put("/api/login/logOut", request);
     }
 
 
