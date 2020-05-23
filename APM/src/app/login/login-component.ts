@@ -45,7 +45,13 @@ export class LoginComponent implements OnInit{
        this.loginService.vratiUlogovanog().subscribe({next: korisnik=>{
             this.korisnik=korisnik;
             alert("User "+korisnik.ime + " logged in successfully.");
-            this.router.navigate(["/homePage"]);
+            if (this.korisnik.rootCreated == true || this.korisnik.rootCreated == false) {
+                console.log("Instanca od ADMIN");
+                this.router.navigate(["/homePage"]);
+              } else {
+                console.log("Instanca od KORISNIK");
+                this.router.navigate(["/homePage/korisnik"]);
+            }
             
        }
        });

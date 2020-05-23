@@ -40,8 +40,28 @@ export class WelcomeComponent implements OnInit {
         //   }
         // }
         if (this.korisnik != null) {
-          this.router.navigate(["/homePage"]);
+          if (this.korisnik.rootCreated == true || this.korisnik.rootCreated == false) {
+            console.log("Instanca od ADMIN");
+            this.router.navigate(["/homePage"]);
+          } else {
+            console.log("Instanca od KORISNIK");
+            this.router.navigate(["/homePage/korisnik"]);
+          }
         }
+
+        // if (korisnik.rootCreated == true || this.korisnik.rootCreated == false) {
+        //   //console.log("Instanca od ADMIN");
+        //   alert("Instanca od ADMIN");
+        //   this.router.navigate(["/homePage"]);
+        // } else {
+        //   if (this.korisnik != null) {
+        //     //console.log("Instanca od KORISNIK");
+        //     alert("Instanca od KORISNIK");
+        //     this.router.navigate(["/homePage/korisnik"]);
+        //   }
+        // }
+
+        
       }
     });
   }

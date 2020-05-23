@@ -33,7 +33,7 @@ export class RegistracijatServces{
     }
 
     public logout(request: Request) {
-        return this.http.post("/api/login/logOut", request);
+        return this.http.put("/api/login/logOut", request);
     }
 
 

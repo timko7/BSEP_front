@@ -7,6 +7,7 @@ import { RegistracijatServces } from '../registacija/registracija.sevice';
 import { SertifikatServces } from '../sertifikat/sertifikat.service';
 import { HomePageComponent } from './home-page.component';
 import { ListaSertifikataComponent } from '../listaSertifikata/listaSertifikata.component';
+import { HomePageKorisnikaComponent } from '../home-page-korisnika/home-page-korisnika.component';
 
 
 
@@ -16,6 +17,7 @@ import { ListaSertifikataComponent } from '../listaSertifikata/listaSertifikata.
     HomePageComponent,
     SertifikatComponent,
     ListaSertifikataComponent,
+    HomePageKorisnikaComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +25,7 @@ import { ListaSertifikataComponent } from '../listaSertifikata/listaSertifikata.
       { path: 'homePage', component: HomePageComponent },
       { path: 'homePage/sertifikat', component:SertifikatComponent },
       { path: 'homePage/listaSertifikata', component:ListaSertifikataComponent },
+      { path: 'homePage/korisnik', component: HomePageKorisnikaComponent }
       
 
     ]),

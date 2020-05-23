@@ -34,6 +34,14 @@ export class HomePageComponent {
 
         if (this.korisnik == null) {
           this.router.navigate(["/welcome"]);
+        } else {
+          if (this.korisnik.rootCreated == true || this.korisnik.rootCreated == false) {
+            console.log("Instanca od ADMIN");
+            //this.router.navigate(["/homePage"]);
+          } else {
+            console.log("Instanca od KORISNIK");
+            this.router.navigate(["/homePage/korisnik"]);
+          }
         }
       }
     });
@@ -46,7 +54,8 @@ export class HomePageComponent {
   }
 
   kraj() {
-    this.router.navigate(["/welcome"]);
+    //this.router.navigate(["/welcome"]);
+    alert("LOGOUT-ovan")
   }
 
 }
